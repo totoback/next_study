@@ -1,22 +1,35 @@
-
-body{
+body {
   margin: 0;
   background: #303030;
   color: #fff;
 }
-
-.title{
+.title {
   text-align: center;
   margin-top: 150px;
 }
-.title-sub{
+.title-sub {
   text-align: center;
 }
-.navbar{
+.navbar {
   background: #fff;
   padding: 20px;
 }
-.navbar a{
+.navbar a {
   margin-right: 10px;
   text-decoration: none;
 }
+.food {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.cart-item {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid grey;
+  line-height: 0px;
+} 

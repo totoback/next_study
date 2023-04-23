@@ -1,14 +1,19 @@
+import Image from 'next/image'
 
 export default function List() {
+  const item = ["Tomatoes", "Pasta", "Coconut"]; //array 자료형
+
   return (
     <div>
       <h4 className="title">상품등록</h4>
-      <div className="food">
-        <h4>상품1 $40</h4>
-      </div>
-      <div className="food">
-        <h4>상품 $40</h4>
-      </div>
+      {item.map((a, i) => {
+        return (
+          <div className="food" key={i}>
+            <h4>{a} $40</h4>
+            <img src={`/food${i}.png`} className="food-img"/>
+          </div>
+        );
+      })}
     </div>
-  )
+  );
 }
