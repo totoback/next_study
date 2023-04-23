@@ -1,4 +1,5 @@
-import React from "react";
+// 'use client'
+import { age, name } from "./data.js";
 
 export default function Cart() {
   return (
@@ -9,6 +10,16 @@ export default function Cart() {
         <p>$40</p>
         <p>1개</p>
       </div>
+      <CartItem />
+      <CartItem />
+      <CartItem />
+    </div>
+  );
+}
+
+function CartItem() {
+  return (
+    <div>
       <div className="cart-item">
         <p>상품명</p>
         <p>$40</p>

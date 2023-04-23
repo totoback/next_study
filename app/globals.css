@@ -19,11 +19,17 @@ body {
   text-decoration: none;
 }
 .food {
+  width: 300px;
+  margin: 0 auto;
   text-align: center;
   padding: 20px;
   background-color: #fff;
   color: #000;
   margin-bottom: 10px;
+  border-radius: 10px;
+}
+.food img{
+  width: 100%;
 }
 
 .cart-item {
