@@ -1,4 +1,4 @@
-import { connectDB } from "@/app/database";
+import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
 export default async function Edit(props) {
@@ -7,8 +7,6 @@ export default async function Edit(props) {
     _id: new ObjectId(props.params.id),
   });
   // console.log(result._id.toString())
-  //아이디와 일치하는 파람스 찾기
-  // console.log(result);
 
   return (
     <div className="p-20">

@@ -5,6 +5,16 @@ import Link from "next/link";
 export default function ListItem({ result }) {
   return (
     <div>
+      <Link href={"/write"}>
+        <button
+          style={{
+            marginBottom: "15px",
+            backgroundColor: "skyblue",
+          }}
+        >
+          글 작성 🖍
+        </button>
+      </Link>
       {result.map((el, index) => {
         return (
           <div className="list-item" key={index}>
@@ -15,16 +25,14 @@ export default function ListItem({ result }) {
             <Link href={"/edit/" + result[index]._id.toString()}>
               <button>수정</button>
             </Link>
-            {/* ajax 삭제 요청 */}
-            {/* <button onClick={()=>{fetch('/api/test').then(()=>{
-              console.log('삭제 완료')
-            })}}>삭제</button> */}
-            {/* /Post 삭제 하는법 */}
             <button
               onClick={() => {
                 fetch("/api/post/delete", {
-                  method: "DELETE",
-                  body: result[index]._id,
+                  method: "POST",
+                  body: JSON.stringify({ _id: result[index]._id }),
+                  headers: {
+                    "Content-Type": "application/json"
+                  }
                 })
                   .then((r) => r.json())
                   .then((result) => {

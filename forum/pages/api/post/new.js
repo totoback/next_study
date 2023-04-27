@@ -1,4 +1,5 @@
-import { connectDB } from "@/app/database";
+import { connectDB } from "@/util/database";
+
 
 export default async function handler2(req, res) {
   if (req.method == "POST") {
