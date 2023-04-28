@@ -31,12 +31,17 @@ export default function ListItem({ result }) {
                   method: "POST",
                   body: JSON.stringify({ _id: result[index]._id }),
                   headers: {
-                    "Content-Type": "application/json"
-                  }
+                    "Content-Type": "application/json",
+                  },
                 })
-                  .then((r) => r.json())
-                  .then((result) => {
-                    //성공시 실행할코드
+                  .then((res) => res.json())
+                  .then((data) => {
+                    console.log(data);
+                    // 성공시 실행할 코드
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                    // 에러 처리 코드
                   });
               }}
             >
