@@ -7,6 +7,7 @@ export default async function List() {
 
   return (
     <div className="list-bg">
+      {/* props */}
       <ListItem result={result}/>
     </div>
   );
