@@ -14,7 +14,6 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions) //로그인 데이터 불러오기
-  console.log(session)
   
   return (
     <html lang="en">
