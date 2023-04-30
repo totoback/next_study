@@ -5,7 +5,7 @@ export default function Comment(props) {
   const [comment, setComment] = useState("");
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("/api/comment/list")
+    fetch("/api/comment/list?id=" + props._id)
       .then((r) => r.json())
       .then((result) => {
         setData(result);
@@ -29,27 +29,23 @@ export default function Comment(props) {
       />
       <button
         onClick={() => {
-          console.log(comment);
+          if (!comment) return;
           fetch("/api/comment/new", {
             method: "POST",
-            // headers: {
-            //   "Content-Type": "application/json"
-            // },
             body: JSON.stringify({ comment: comment, _id: props._id }),
           })
-          .then((r) => r.json())
-          .then((result) => {
-            console.log(result); // 응답 데이터 확인
-            setComment("");
-            fetch("/api/comment/list")
-              .then((r) => r.json())
-              .then((data) => {
-                setData(data);
-              });
-          })
-          .catch((error) => {
-            console.error(error);
-          });
+            .then((r) => r.json())
+            .then(() => {
+              setComment("");
+              // 새로운 댓글을 추가합니다.
+              setData((prevData) => [
+                ...prevData,
+                { content: comment, _id: props._id },
+              ]);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
         }}
       >
         댓글 전송
