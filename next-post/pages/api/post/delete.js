@@ -2,6 +2,7 @@ import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
+  //삭제
   if (req.method == "POST") {
     const db = (await connectDB).db("post");
     let result = await db
